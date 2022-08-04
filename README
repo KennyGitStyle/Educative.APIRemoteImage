@@ -1,0 +1,20 @@
+Things I have done:
+
+- I have cloned my environment using the remote container package, this allows me to create the existing environment on any other device without having to install the dependencies. The configuration can be found inside the .devcontainer folder, there you will see the DockerFile, devcontainer.json file, and the docker-compose.yml.
+
+The other Dockerfile consist of the configuration for all the dependancies for the project itself.
+
+What I would like to do:
+
+- Is possible to have this set run in the lessons as the interactive session?
+
+Prerequisits:
+
+- download vs-code, download the Remote Container extension and docker desktop.
+
+Trying it:
+
+- start by running:- git clone https://github.com/KennyGitStyle/Educative.APIRemoteImage.git
+- You also need vs-code installed along with docker to test it locally.
+- After installation, you will see the workspace folder it appears like so - workspace/, change directory into the Educative.API and type dotnet run to run the api. There are two ports allocated [5000, 5001] for the container.
+- Go to localhost:5000/educative/Student, you can also use swagger.
