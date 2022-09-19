@@ -1,0 +1,57 @@
+[{
+        "StudentId": "Drus",
+        "Student": {
+            "Attendance": 90,
+            "DateOfBirth": "1992-03-29",
+            "Email": "tatiania.drus@gmail.com",
+            "Firstname": "Tatiania",
+            "Lastname": "Drus",
+            "MiddlenameInitial": "L",
+            "PhoneNo": "8975-789651",
+            "StudentId": "Drus"
+
+        },
+        "CourseId": "Bus",
+        "Course": {
+            "CourseDescription": "Lorem ipsum dolor sit amet. Eos vero minima sit dolor ipsum qui dolorum sunt sed accusamus fugiat hic odio saepe non blanditiis veritatis. Cum itaque reprehenderit qui velit blanditiis est vero architecto in veniam voluptatem cum repellat voluptas eos corporis perferendis. Ab sunt harum ut illum veritatis aut nulla provident vel odit saepe.",
+            "CourseId": "Bus",
+            "CourseName": "Business",
+            "CourseTopic": "Arts",
+            "CourseTutor": "Maye Teddman"
+        }
+    },
+    {
+        "CourseId": "Cyber",
+        "StudentId": "Drus"
+    },
+    {
+        "CourseId": "Psy",
+        "StudentId": "Vivle"
+    },
+    {
+        "CourseId": "Mar",
+        "StudentId": "Vivle"
+    },
+    {
+        "CourseId": "Bus",
+
+        "StudentId": "Klemperer"
+
+    },
+    {
+        "CourseId": "Cyber",
+        "StudentId": "Lauryn"
+    },
+    {
+        "CourseId": "DataScie",
+        "StudentId": "Lauryn"
+    },
+    {
+        "CourseId": "Bus",
+        "StudentId": "Lauryn"
+    },
+    {
+        "CourseId": "Psy",
+        "StudentId": "Malanie"
+    }
+]

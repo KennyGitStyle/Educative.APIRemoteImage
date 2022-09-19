@@ -1,0 +1,5 @@
+{
+	"dotnet-test-explorer.testProjectPath": "**/*nUnitTests.csproj",
+	"appService.defaultWebAppToDeploy": "/subscriptions/74392903-f7d3-4528-a254-d3eb615e0b95/microsoft.web/sites/subscriptions/74392903-f7d3-4528-a254-d3eb615e0b95/resourceGroups/EducativeAPI/providers/Microsoft.Web/sites/educative-api",
+	"appService.deploySubpath": "publish"
+}

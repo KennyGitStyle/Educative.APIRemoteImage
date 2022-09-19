@@ -1,0 +1,52 @@
+[
+    {
+        "Attendance": 90,
+        "DateOfBirth": "1992-03-29",
+        "Email": "tatiania.drus@gmail.com",
+        "Firstname": "Tatiania",
+        "Lastname": "Drus",
+        "MiddlenameInitial": "L",
+        "PhoneNo": "8975-789651",
+        "StudentId": "Drus"
+    },
+    {
+        "Attendance": 70,
+        "DateOfBirth": "1986-09-24",
+        "Email": "monika.vivle@gmail.com",
+        "Firstname": "Monika",
+        "Lastname": "Vivle",
+        "MiddlenameInitial": "G",
+        "PhoneNo": "8975-78701",
+        "StudentId": "Vivle"
+    },
+    {
+        "Attendance": 75,
+        "DateOfBirth": "1991-05-23",
+        "Email": "gerrie.klemperer@gmail.com",
+        "Firstname": "Gerrie",
+        "Lastname": "Klemperer",
+        "MiddlenameInitial": "V",
+        "PhoneNo": "8975-789651",
+        "StudentId": "Klemperer"
+    },
+    {
+        "Attendance": 90,
+        "DateOfBirth": "1997-01-14",
+        "Email": "amii.malanie@gmail.com",
+        "Firstname": "Amii",
+        "Lastname": "Malanie",
+        "MiddlenameInitial": null,
+        "PhoneNo": "07984565784",
+        "StudentId": "Malanie"
+    },
+    {
+        "Attendance": 90,
+        "DateOfBirth": "1990-07-30",
+        "Email": "noelle.lauryn@gmail.com",
+        "Firstname": "Noelle",
+        "Lastname": "Lauryn",
+        "MiddlenameInitial": null,
+        "PhoneNo": "07784565584",
+        "StudentId": "Lauryn"
+    }
+]

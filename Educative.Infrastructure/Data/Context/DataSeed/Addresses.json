@@ -1,0 +1,90 @@
+[
+    {
+        "Add2": "Mary Lane Ave",
+        "Addr1": "2",
+        "AddressId": "Bos",
+        "City": "Boston",
+        "County": "Massachusetts",
+        "Student": {
+            "Attendance": 90,
+            "DateOfBirth": "1992-03-29",
+            "Email": "tatiania.drus@gmail.com",
+            "Firstname": "Tatiania",
+            "Lastname": "Drus",
+
+            "MiddlenameInitial": "L",
+            "PhoneNo": "8975-789651",
+            "StudentId": "Drus"
+        },
+        "Postcode": "PE20 2ZD",
+        "StudentId": "Drus"
+    },
+    {
+        "Add2": "Broadway",
+        "Addr1": "838",
+        "AddressId": "NYB",
+        "City": "New York",
+        "County": "NY",
+        "Student": {
+            "Attendance": 70,
+            "DateOfBirth": "1986-09-24",
+            "Email": "monika.vivle@gmail.com",
+            "Firstname": "Monika",
+            "Lastname": "Vivle",
+
+            "MiddlenameInitial": "G",
+            "PhoneNo": "8975-78701",
+            "StudentId": "Vivle"
+        },
+        "Postcode": "10003",
+        "StudentId": "Vivle"
+    },
+    {
+        "Add2": "3rd Ave",
+        "Addr1": "33",
+        "AddressId": "NY3",
+        "City": "New York",
+        "County": "NY",
+        "Student": {
+            "Attendance": 75,
+            "DateOfBirth": "1991-05-23",
+            "Email": "gerrie.klemperer@gmail.com",
+            "Firstname": "Gerrie",
+            "Lastname": "Klemperer",
+            "MiddlenameInitial": "V",
+            "PhoneNo": "8975-789651",
+            "StudentId": "Klemperer"
+        },
+        "Postcode": "10003",
+        "StudentId": "Klemperer"
+    },
+    {
+        "Add2": "Southampton St",
+        "Addr1": "256",
+        "AddressId": "RND",
+        "City": "Reading",
+        "County": "Berkshire",
+        "Student": "Students",
+        "Postcode": "RG1 2ZD",
+        "StudentId": "Malanie"
+    },
+    {
+        "Add2": "Steven Lane",
+        "Addr1": "78",
+        "AddressId": "LDNW",
+        "City": "London",
+        "County": "West London",
+        "Student": {
+            "Attendance": 90,
+            "DateOfBirth": "1990-07-30",
+            "Email": "noelle.lauryn@gmail.com",
+            "Firstname": "Noelle",
+            "Lastname": "Lauryn",
+            "MiddlenameInitial": null,
+            "PhoneNo": "07784565584",
+            "StudentId": "Lauryn"
+        },
+        "Postcode": "W1 2ZD",
+        "StudentId": "Lauryn"
+    }
+]
