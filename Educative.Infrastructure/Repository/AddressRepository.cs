@@ -15,6 +15,5 @@ namespace Educative.Infrastructure.Repository
             
         }
 
-        
     }
 }

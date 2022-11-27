@@ -25,7 +25,6 @@ namespace Educative.API.Controllers
             _mapper = mapper;
             _appCache = appCache;
         }
-        
 
         //[CachedAttribute(900)]
         [HttpGet]
@@ -51,14 +50,12 @@ namespace Educative.API.Controllers
         {
            if(string.IsNullOrWhiteSpace(id) && id == null){
                 return BadRequest(new HttpErrorException(400)); // 400 bad request made
-           }
-
-
-             var cached = await _appCache.GetOrAddAsync(courseKey,  () =>  _unitOfWork.CourseRepository.GetByIdAsync(id), DateTimeOffset.Now.AddMinutes(25));
-
-            if(cached.CourseId != id)
-            {
-                return NotFound(new HttpErrorException(400)); // 400 Bad request
+            }
+           
+           var cached = await _appCache.GetOrAddAsync(courseKey,  () =>  _unitOfWork.CourseRepository.GetByIdAsync(id), DateTimeOffset.Now.AddMinutes(25));
+           
+           if(cached.CourseId != id){
+                return NotFound(new HttpErrorException(400)); // 400 Bad request  
             }
             
             return Ok(_mapper.Map<Course, CourseDto>(cached));
@@ -69,18 +66,16 @@ namespace Educative.API.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult<Course>> AddCourse(Course course)
         {
-            if (course == null)
-            {
+            if (course == null){
                 return BadRequest(new HttpErrorException(400)); // 400 Bad request
             }
 
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid){
                 return BadRequest(ModelState); // 400 Bad request
             }
             
             var added = await _unitOfWork.CourseRepository.AddAsync(course);
-
+            
             return CreatedAtRoute(// 201 Created
             routeName: nameof(GetCourseById),
             routeValues: new { id = course.CourseId.ToLower() },
@@ -93,20 +88,17 @@ namespace Educative.API.Controllers
         [ProducesResponseType(404)]
         public async Task<ActionResult<CourseDto>>UpdateCourse(string id, [FromBody]CourseDto courseDto)
         {
-           if (courseDto == null || string.IsNullOrWhiteSpace(id))
-            {
+            if (courseDto == null || string.IsNullOrWhiteSpace(id)){
                 return BadRequest(new HttpErrorException(400)); // 400 Bad request
             }
 
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid){
                 return BadRequest(new HttpErrorException(400)); // 400 Bad request
             }
 
             var existing = await _unitOfWork.CourseRepository.GetByIdAsync(id);
 
-            if (id != existing.CourseId)
-            {
+            if (id != existing.CourseId){
                 return NotFound(new HttpErrorException(404)); // 404 Not Found Resource 
             }
 
@@ -124,8 +116,7 @@ namespace Educative.API.Controllers
         {
             var existing = await _unitOfWork.CourseRepository.GetByIdAsync(id);
 
-            if (existing == null)
-            {
+            if (existing == null){
                 return NotFound(new HttpErrorException(404)); // 404 Resource not found
             }
 

@@ -50,8 +50,7 @@ namespace Educative.API.Controllers
         {
             var course = await _unitOfWork.CourseRepository.GetByIdAsync(id);
 
-            if(course == null)
-            {
+            if(course == null){
                 return NotFound(new HttpErrorException(404));
             }
             return Ok(course);
@@ -62,17 +61,16 @@ namespace Educative.API.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult<Course>> V1AddCourse(Course course)
         {
-            if (course == null)
-            {
+            if (course == null){
                 return BadRequest(new HttpErrorException(400)); // 400 Bad request
             }
 
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid){
                 return BadRequest(ModelState); // 400 Bad request
             }
 
             var added = await _unitOfWork.CourseRepository.AddAsync(course);
+
             return CreatedAtRoute(// 201 Created
             routeName: nameof(V1GetCourseById),
             routeValues: new { id = course.CourseId.ToLower() },
@@ -85,20 +83,20 @@ namespace Educative.API.Controllers
         [ProducesResponseType(404)]
         public async Task<ActionResult<Course>> V1UpdateCourse(string id, [FromBody] Course course)
         {
-            if (course == null || course.CourseId != id)
+            if (course == null || course.CourseId != id){
                 return BadRequest(new HttpErrorException(400)); // 400 Bad request
+            }
 
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid){
                 return BadRequest(new HttpErrorException(400)); // 400 Bad request
             }
 
             var existing = await _unitOfWork.CourseRepository.GetByIdAsync(id);
 
-            if (existing == null)
-            {
+            if (existing == null){
                 return NotFound(new HttpErrorException(404)); // 404 Resource not found
             }
+
             await _unitOfWork.CourseRepository.UpdateAsync(course);
 
             return new NoContentResult(); // 204 No content
@@ -111,8 +109,7 @@ namespace Educative.API.Controllers
         {
             var existing = await _unitOfWork.CourseRepository.GetByIdAsync(id);
             
-            if (existing == null)
-            {
+            if (existing == null){
                 return NotFound(new HttpErrorException(404)); // 404 Resource not found
             }
 

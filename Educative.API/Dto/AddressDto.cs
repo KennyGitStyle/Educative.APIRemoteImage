@@ -2,8 +2,6 @@ namespace Educative.API.Dto;
 
 public class AddressDto
 {
-
-
     public string AddressId { get; set; } = string.Empty;
 
     public string Addr1 { get; set; } = string.Empty;
@@ -12,9 +10,7 @@ public class AddressDto
 
     public string City { get; set; }
 
-
     public string County { get; set; } = string.Empty!;
-
 
     public string Postcode { get; set; } = string.Empty!;
 

@@ -1,28 +1,33 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal AS base
+FROM gcr.io/educative-exec-env/gui-app:1.0
 
-RUN dotnet tool install --global dotnet-ef --version 6.0.5 
+ARG DEBIAN_FRONTEND=noninteractive
 
-WORKDIR /app
-EXPOSE 80
+RUN apt-get update && apt-get install -y wget && \
+    apt-get install -y libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+RUN wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
 
-WORKDIR /src
+RUN tar -xzf postman.tar.gz -C /opt
+
+RUN ln -s /opt/Postman/Postman /usr/bin/postman
+
+COPY ./postman.desktop /.local/share/applications/
+
+RUN apt-get update && apt-get install wget -y
+
+RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && dpkg -i packages-microsoft-prod.deb && rm packages-microsoft-prod.deb
+
+RUN apt-get update && apt-get install -y apt-transport-https && apt-get update && apt-get install -y dotnet-sdk-6.0 aspnetcore-runtime-6.0 dotnet-runtime-6.0
+
+RUN apt-get update && apt-get install -y apt-transport-https && apt-get update && apt-get install -y dotnet-sdk-7.0 aspnetcore-runtime-7.0 dotnet-runtime-7.0
+
+# Copy everything else and build
 COPY . .
 
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata &&\
+    apt-get install curl git software-properties-common -y &&\
+    curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh &&\
+    bash nodesource_setup.sh &&\
+    apt-get install nodejs -y && npm install -g http-server && git clone https://github.com/swagger-api/swagger-editor.git
 
-RUN dotnet restore "Educative.Infrastructure/Educative.Infrastructure.csproj"
-RUN dotnet restore "Educative.Core/Educative.Core.csproj"
-RUN dotnet restore "Educative.API/Educative.API.csproj"
-RUN dotnet restore "Educative.nUnitTests/Educative.nUnitTests.csproj"
-COPY . .
-WORKDIR "/src/Educative.API"
-
-
-
-RUN dotnet build "Educative.API.csproj" -c Release -o /app/build
-
-RUN dotnet watch run "Educative.API.csproj"
-
-ENTRYPOINT ["dotnet", "Educative.API.dll"]
-
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash

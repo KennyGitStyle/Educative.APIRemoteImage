@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Educative.Core;
 using Educative.Infrastructure.Context;
+using Educative.Infrastructure.LoggerFactory;
 using Microsoft.Extensions.Logging;
 
 namespace Educative.Infrastructure.Data.Context
@@ -37,13 +38,23 @@ namespace Educative.Infrastructure.Data.Context
 
                     await context.SaveChangesAsync();
                 }
+                if(!context.Addresses.Any())
+                {
+                    var addresses = await File.ReadAllTextAsync("../Educative.Infrastructure/Data/Context/DataSeed/Addresses.json");
+                    
+                    var AddressList =  JsonSerializer.Deserialize<List<Address>>(addresses);
+                    
+                    AddressList.ForEach(async a => await context.Addresses.AddAsync(a));
+
+                    await context.SaveChangesAsync();
+                }
 
             }
             catch (Exception ex)
             {
-                var logger = loggerFactory.CreateLogger<EducativeContextSeed>();
-                logger.LogError("Educative Context Seed Error: ", ex.Message);
+                FactoryLogger<EducativeContextSeed>.InitialiseLoggerFactory(loggerFactory, ex);
             }
         }
+
     }
 }

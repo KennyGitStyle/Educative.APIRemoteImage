@@ -27,7 +27,7 @@ namespace Educative.API.Controllers
             var students = await _unitOfWork.
             StudentRepository.FilterAttendanceAsync(x => x.Attendance >= 80);
 
-            return Ok(_mapper.Map<IEnumerable<Student>,IEnumerable<StudentDto>>(students));
+            return Ok(_mapper.Map<IEnumerable<Student>, IEnumerable<StudentDto>>(students));
         }
 
         [HttpGet("{id}", Name = nameof(GetStudentById))]
@@ -36,8 +36,6 @@ namespace Educative.API.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult<StudentDto>> GetStudentById(string id)
         {
-
-
             if (string.IsNullOrWhiteSpace(id) && id == null)
             {
                 return BadRequest(new HttpErrorException(400)); // 400 bad request made
@@ -55,7 +53,7 @@ namespace Educative.API.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof (StudentDto))]
+        [ProducesResponseType(201, Type = typeof(StudentDto))]
         [HttpDbExceptionFilter]
         [ProducesResponseType(400)]
         public async Task<ActionResult<StudentDto>> AddStudent(StudentDto studentDto)

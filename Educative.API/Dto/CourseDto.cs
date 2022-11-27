@@ -3,9 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Educative.API.Dto;
 public class CourseDto
 {
-
-
-
     public string CourseId { get; set; } = string.Empty!;
 
     [Required]
@@ -15,7 +12,6 @@ public class CourseDto
     public string CourseTutor { get; set; } = string.Empty!;
 
     [Required]
-
     public string CourseDescription { get; set; } = string.Empty!;
 
     [Required]

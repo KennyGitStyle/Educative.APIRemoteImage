@@ -1,5 +1,6 @@
 using Educative.Infrastructure.Context;
 using Educative.Infrastructure.Data.Context;
+using Educative.Infrastructure.LoggerFactory;
 using Microsoft.EntityFrameworkCore;
 
 namespace Educative.API.Extension
@@ -18,8 +19,7 @@ namespace Educative.API.Extension
                 await EducativeContextSeed.SeedDatabaseAsync(context, loggerFactory);
             }
             catch (Exception ex){
-                var logger = loggerFactory.CreateLogger<Program>();
-                logger.LogError(ex, "An error occurred while migrating the database.");
+                FactoryLogger<Program>.InitialiseLoggerFactory(loggerFactory, ex);
             }
 
         }
